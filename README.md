@@ -1,2 +1,2 @@
-# grokaem_algorithms
-My implementations of algorithms from book "Грокаем алгоритмы"
+# Algorithms
+My implementations of some algorithms
