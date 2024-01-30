@@ -2,14 +2,16 @@
 
 function quickSort(arr) {
   if (arr.length < 2) return arr;
-  let pivot = arr[0];
+
+  const pivot = arr.shift();
   const right = [];
   const left = [];
-  arr.shift();
+
   arr.forEach(num => {
     if (num <= pivot) right.push(num)
     else left.push(num);
   });
+
   return [...quickSort(right), pivot, ...quickSort(left)];
 }
 
