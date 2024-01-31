@@ -130,10 +130,12 @@ class LinkedList {
 
     if (index === 0) {
       this.prepend(node);
+      return;
     }
 
-    if (index === this.size - 1) {
+    if (index === this.size) {
       this.append(node);
+      return;
     }
 
     let currentNode = this.head;
