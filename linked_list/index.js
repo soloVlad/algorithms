@@ -18,4 +18,7 @@ console.log(list.contains(5));
 console.log(list.find(5));
 console.log(list.find(1));
 
+list.insertAt(1, 11);
+list.insertAt(1, 11);
+
 console.log(list.toString());
