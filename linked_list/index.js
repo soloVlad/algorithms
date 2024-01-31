@@ -11,3 +11,6 @@ console.log(list.at(2));
 list.pop();
 
 console.log(list.at(2));
+
+console.log(list.contains(2));
+console.log(list.contains(5));

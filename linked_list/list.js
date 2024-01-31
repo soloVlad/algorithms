@@ -82,6 +82,24 @@ class LinkedList {
 
     this.#decreaseSize();
   }
+
+  contains(value) {
+    if (!this.size) {
+      return false;
+    }
+
+    let currentNode = this.head;
+
+    while (currentNode) {
+      if (currentNode.value === value) {
+        return true;
+      }
+
+      currentNode = currentNode.next;
+    }
+
+    return false;
+  }
 }
 
 module.exports.LinkedList = LinkedList;
