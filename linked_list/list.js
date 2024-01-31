@@ -11,6 +11,10 @@ class LinkedList {
     this.size++;
   }
 
+  #decreaseSize() {
+    this.size--;
+  }
+
   append(item) {
     const node = new Node(item);
 
@@ -55,6 +59,28 @@ class LinkedList {
     }
 
     return currentNode.value;
+  }
+
+  pop() {
+    if (!this.size) {
+      return;
+    }
+
+    if (this.size === 1) {
+      this.head = null;
+      this.tail = null;
+    }
+    else {
+      let currentNode = this.head;
+
+      while (currentNode.next.next) {
+        currentNode = currentNode.next;
+      }
+
+      currentNode.next = null;
+    }
+
+    this.#decreaseSize();
   }
 }
 
