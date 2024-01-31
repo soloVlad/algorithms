@@ -17,3 +17,5 @@ console.log(list.contains(5));
 
 console.log(list.find(5));
 console.log(list.find(1));
+
+console.log(list.toString());
