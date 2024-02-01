@@ -33,11 +33,23 @@ class HashMap {
 
     const pair = this.array[index];
 
-    if (pair) {
+    if (!pair) {
+      return null;
+    }
+
+    if (pair[0] === key) {
       return pair[1];
     }
 
     return null;
+  }
+
+  has(key) {
+    if (this.get(key) === null) {
+      return false;
+    }
+
+    return true;
   }
 
   keys() {

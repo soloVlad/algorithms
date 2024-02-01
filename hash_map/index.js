@@ -30,3 +30,5 @@ console.log(hashMap.keys());
 console.log(hashMap.values());
 
 console.log(hashMap.get('famdfgdffame'));
+console.log(hashMap.has('famdfgdffam'));
+
