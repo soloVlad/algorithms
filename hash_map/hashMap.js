@@ -44,6 +44,16 @@ class HashMap {
     return null;
   }
 
+  remove(key) {
+    if (!this.has(key)) {
+      return false;
+    }
+
+    const index = this.#getIndexByKey(key);
+
+    delete this.array[index];
+  }
+
   has(key) {
     if (this.get(key) === null) {
       return false;
@@ -62,6 +72,10 @@ class HashMap {
 
   entries() {
     return this.array.filter(pair => pair);
+  }
+
+  clear() {
+    this.array = new Array(HashMap.#MIN_CAPACITY);
   }
 
   #getCapacity() {

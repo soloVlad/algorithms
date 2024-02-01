@@ -24,6 +24,7 @@ hashMap.set('gamefghme', 'vlad');
 hashMap.set('ramerdfgme', 'vlad');
 hashMap.set('famdfgdffame', 'vlad');
 
+hashMap.remove('btiuiyj');
 
 console.log(hashMap.entries());
 console.log(hashMap.keys());
@@ -32,3 +33,5 @@ console.log(hashMap.values());
 console.log(hashMap.get('famdfgdffame'));
 console.log(hashMap.has('famdfgdffam'));
 
+hashMap.clear();
+console.log(hashMap.entries());
