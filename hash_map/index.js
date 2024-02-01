@@ -26,3 +26,7 @@ hashMap.set('famdfgdffame', 'vlad');
 
 
 console.log(hashMap.entries());
+console.log(hashMap.keys());
+console.log(hashMap.values());
+
+console.log(hashMap.get('famdfgdffame'));

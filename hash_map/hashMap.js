@@ -19,14 +19,33 @@ class HashMap {
   }
 
   set(key, value) {
-    const keyHash = this.hash(key);
-    const index = keyHash % this.#getCapacity();
+    const index = this.#getIndexByKey(key);
 
     this.array[index] = [key, value];
 
     if (this.#shouldResize()) {
       this.#resize();
     }
+  }
+
+  get(key) {
+    const index = this.#getIndexByKey(key);
+
+    const pair = this.array[index];
+
+    if (pair) {
+      return pair[1];
+    }
+
+    return null;
+  }
+
+  keys() {
+    return this.array.filter(pair => pair).map(pair => pair[0]);
+  }
+
+  values() {
+    return this.array.filter(pair => pair).map(pair => pair[1]);
   }
 
   entries() {
@@ -39,6 +58,11 @@ class HashMap {
 
   #getLoad() {
     return this.array.filter(pair => pair).length;
+  }
+
+  #getIndexByKey(key) {
+    const keyHash = this.hash(key);
+    return keyHash % this.#getCapacity();
   }
 
   #shouldResize() {
@@ -54,8 +78,7 @@ class HashMap {
       .forEach(pair => {
         const [key, value] = pair;
 
-        const keyHash = this.hash(key);
-        const index = keyHash % this.#getCapacity();
+        const index = this.#getIndexByKey(key);
         this.array[index] = [key, value];
       })
   }
