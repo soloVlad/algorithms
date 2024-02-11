@@ -1,0 +1,12 @@
+{
+  "name": "binary_search_tree",
+  "version": "1.0.0",
+  "description": "1. Build a Node class/factory. It should have an attribute for the data it stores as well as its left and right children.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
