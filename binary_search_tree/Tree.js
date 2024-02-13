@@ -30,6 +30,37 @@ class Tree {
 
     return this.#constructTree(uniqueArray);
   }
+
+  insert(item, currentNode = this.root) {
+    const node = new Node(item);
+
+    if (!this.root) {
+      this.root = node;
+      return;
+    }
+
+    if (item < currentNode.data) {
+      if (!currentNode.left) {
+        currentNode.left = node;
+      } else {
+        this.insert(item, currentNode.left);
+      }
+
+      return;
+    }
+
+    if (item > currentNode.data) {
+      if (!currentNode.right) {
+        currentNode.right = node;
+      } else {
+        this.insert(item, currentNode.right);
+      }
+
+      return;
+    }
+
+    console.error('Error while inserting');
+  }
 }
 
 module.exports.Tree = Tree;
