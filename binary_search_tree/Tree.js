@@ -31,35 +31,28 @@ class Tree {
     return this.#constructTree(uniqueArray);
   }
 
-  insert(item, currentNode = this.root) {
-    const node = new Node(item);
+  insert(item) {
+    this.root = this.#insertRec(item);
+  }
 
-    if (!this.root) {
-      this.root = node;
-      return;
+  #insertRec(item, currentNode = this.root) {
+    if (!currentNode) {
+      return new Node(item);
     }
 
     if (item < currentNode.data) {
-      if (!currentNode.left) {
-        currentNode.left = node;
-      } else {
-        this.insert(item, currentNode.left);
-      }
-
-      return;
+      currentNode.left = this.#insertRec(item, currentNode.left);
     }
 
     if (item > currentNode.data) {
-      if (!currentNode.right) {
-        currentNode.right = node;
-      } else {
-        this.insert(item, currentNode.right);
-      }
-
-      return;
+      currentNode.right = this.#insertRec(item, currentNode.right);
     }
 
-    console.error('Error while inserting');
+    if (item === currentNode.data) {
+      console.error('Error while inserting: Duplicate item');
+    }
+
+    return currentNode;
   }
 }
 
