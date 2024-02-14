@@ -9,3 +9,7 @@ prettyPrint(tree.root);
 tree.insert(2);
 
 prettyPrint(tree.root);
+
+tree.remove(8);
+
+prettyPrint(tree.root);

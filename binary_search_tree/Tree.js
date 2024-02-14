@@ -54,6 +54,52 @@ class Tree {
 
     return currentNode;
   }
+
+  remove(item) {
+    this.root = this.#removeRec(item);
+  }
+
+  #removeRec(item, currentNode = this.root) {
+    if (!currentNode) {
+      return currentNode
+    }
+
+    // traversing removal
+    if (item < currentNode.data) {
+      currentNode.left = this.#removeRec(item, currentNode.left);
+      return currentNode;
+    } else if (item > currentNode.data) {
+      currentNode.right = this.#removeRec(item, currentNode.right);
+      return currentNode;
+    }
+
+    // handle both null or only one child cases
+    if (!currentNode.left) {
+      return currentNode.right;
+    }
+    else if (!currentNode.right) {
+      return currentNode.left;
+    }
+
+    // searching for the most left element in right subtree of removing element
+    let nodeIteratorParent = currentNode;
+    let nodeIterator = currentNode.right;
+
+    while (nodeIterator.left) {
+      nodeIteratorParent = nodeIterator;
+      nodeIterator = nodeIterator.left;
+    }
+
+    if (currentNode !== nodeIteratorParent) {
+      nodeIteratorParent.left = nodeIterator.right;
+    } else {
+      nodeIteratorParent.right = nodeIterator.right;
+    }
+
+    currentNode.data = nodeIterator.data;
+
+    return currentNode;
+  }
 }
 
 module.exports.Tree = Tree;
