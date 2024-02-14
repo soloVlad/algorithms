@@ -111,6 +111,22 @@ class Tree {
       return this.find(item, currentNode.right);
     }
   }
+
+  print(node = this.root, prefix = "", isLeft = true) {
+    if (node === null) {
+      return;
+    }
+
+    if (node.right !== null) {
+      this.print(node.right, `${prefix}${isLeft ? "│   " : "    "}`, false);
+    }
+
+    console.log(`${prefix}${isLeft ? "└── " : "┌── "}${node.data}`);
+
+    if (node.left !== null) {
+      this.print(node.left, `${prefix}${isLeft ? "    " : "│   "}`, true);
+    }
+  };
 }
 
 module.exports.Tree = Tree;
