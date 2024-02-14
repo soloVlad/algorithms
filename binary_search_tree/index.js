@@ -13,3 +13,7 @@ prettyPrint(tree.root);
 tree.remove(8);
 
 prettyPrint(tree.root);
+
+const found = tree.find(67);
+
+console.log(found.data, found.left?.data, found.right?.data);

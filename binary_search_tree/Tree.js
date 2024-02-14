@@ -100,6 +100,17 @@ class Tree {
 
     return currentNode;
   }
+
+  find(item, currentNode = this.root) {
+    if (!currentNode) return currentNode;
+    if (currentNode.data === item) return currentNode;
+
+    if (item < currentNode.data) {
+      return this.find(item, currentNode.left);
+    } else {
+      return this.find(item, currentNode.right);
+    }
+  }
 }
 
 module.exports.Tree = Tree;
