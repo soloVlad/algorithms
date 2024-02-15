@@ -112,6 +112,23 @@ class Tree {
     }
   }
 
+  levelOrder(callback) {
+    if (!this.root) return this.root;
+
+    const queue = [this.root];
+    const resultArray = [];
+
+    while (queue.length) {
+      const currentElement = queue.shift();
+      resultArray.push(callback(currentElement));
+
+      if (currentElement.left) queue.push(currentElement.left);
+      if (currentElement.right) queue.push(currentElement.right);
+    }
+
+    return resultArray;
+  }
+
   print(node = this.root, prefix = "", isLeft = true) {
     if (node === null) {
       return;

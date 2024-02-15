@@ -16,3 +16,7 @@ tree.print();
 const found = tree.find(67);
 
 console.log(found.data, found.left?.data, found.right?.data);
+
+console.log(tree.levelOrder((node) => {
+  return (node.data * 100);
+}))
