@@ -22,3 +22,7 @@ console.log(tree.levelOrder((node) => {
 }))
 
 console.log(tree.inOrder());
+
+const seven = tree.find(4);
+
+console.log(tree.height(seven));

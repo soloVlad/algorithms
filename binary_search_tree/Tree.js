@@ -137,6 +137,16 @@ class Tree {
     if (currentNode.right) this.inOrder(currentNode.right);
   }
 
+  // we don't consider null nodes as nodes, only existing values
+  height(node) {
+    if (!node) return node;
+    if (!node.left && !node.right) return 0;
+
+    const leftHeight = this.height(node.left);
+    const rightHeight = this.height(node.right);
+    return Math.max(leftHeight, rightHeight) + 1;
+  }
+
   print(node = this.root, prefix = "", isLeft = true) {
     if (node === null) {
       return;
