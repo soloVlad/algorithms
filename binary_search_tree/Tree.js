@@ -178,6 +178,15 @@ class Tree {
     );
   }
 
+  rebalance() {
+    if (this.checkIsBalanced()) return;
+
+    const arrayOfNodes = this.levelOrder((node) => node.data);
+    this.root = this.buildTree(arrayOfNodes);
+
+    return this.root;
+  }
+
   print(node = this.root, prefix = "", isLeft = true) {
     if (node === null) {
       return;
