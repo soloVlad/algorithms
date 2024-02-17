@@ -27,3 +27,10 @@ const seven = tree.find(7);
 
 console.log(tree.height(seven));
 console.log(tree.depth(seven));
+
+console.log(tree.checkIsBalanced());
+
+tree.insert(2.5);
+tree.print();
+
+console.log(tree.checkIsBalanced());

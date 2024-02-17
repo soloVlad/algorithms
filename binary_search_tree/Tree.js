@@ -161,6 +161,23 @@ class Tree {
     }
   }
 
+  checkIsBalanced(currentNode = this.root) {
+    if (!currentNode) {
+      return true;
+    }
+
+    const leftHeight = this.height(currentNode.left);
+    const rightHeight = this.height(currentNode.right);
+
+    const difference = Math.abs(leftHeight - rightHeight);
+
+    return (
+      difference <= 1
+      && this.checkIsBalanced(currentNode.left)
+      && this.checkIsBalanced(currentNode.right)
+    );
+  }
+
   print(node = this.root, prefix = "", isLeft = true) {
     if (node === null) {
       return;
