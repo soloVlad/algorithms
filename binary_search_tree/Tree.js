@@ -129,6 +129,14 @@ class Tree {
     return resultArray;
   }
 
+  inOrder(currentNode = this.root) {
+    if (!currentNode) return currentNode;
+
+    if (currentNode.left) this.inOrder(currentNode.left);
+    console.log(currentNode.data);
+    if (currentNode.right) this.inOrder(currentNode.right);
+  }
+
   print(node = this.root, prefix = "", isLeft = true) {
     if (node === null) {
       return;

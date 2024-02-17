@@ -20,3 +20,5 @@ console.log(found.data, found.left?.data, found.right?.data);
 console.log(tree.levelOrder((node) => {
   return (node.data * 100);
 }))
+
+console.log(tree.inOrder());
