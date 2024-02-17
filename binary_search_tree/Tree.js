@@ -147,6 +147,20 @@ class Tree {
     return Math.max(leftHeight, rightHeight) + 1;
   }
 
+  depth(node, currentNode = this.root) {
+    if (node.data === currentNode.data) {
+      return 0;
+    }
+
+    if (node.data < currentNode.data) {
+      return this.depth(node, currentNode.left) + 1;
+    }
+
+    if (node.data > currentNode.data) {
+      return this.depth(node, currentNode.right) + 1;
+    }
+  }
+
   print(node = this.root, prefix = "", isLeft = true) {
     if (node === null) {
       return;
