@@ -5,6 +5,8 @@ class Board {
     this.width = width;
     this.height = height;
 
+    // board is used to track visited cells
+    // if cell is visited, then it contains prev cell
     this.cells = [...new Array(this.width)]
       .map((_) => new Array(this.height).fill(false))
   }
@@ -42,10 +44,6 @@ class Board {
     const yEqual = firstCell[1] === secondCell[1];
 
     return xEqual && yEqual;
-  }
-
-  refresh() {
-    this.cells = this.cells.map(line => line.fill(false));
   }
 }
 
